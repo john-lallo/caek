@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset = 'utf-8'>
+	<title> cake </title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+	<style>
+		html, body{
+			background-color: #000000;
+			font-family: Montserrat, sans;
+		}
+
+		h1{
+			padding: 0;
+			margin: -22px 0 0 0;		
+			color: #ffffff;
+			font-size: 70px;
+		}
+
+		#container{
+			width: 200px;
+			height: 200px;
+			position: relative;
+			-webkit-perspective: 500px;
+			-webkit-perspective-origin: 50% 50%;
+		}
+
+		#plate{
+			transform-style: preserve-3d;
+			transform: rotateX(-25deg);
+		}
+
+		#cake{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transform-style: preserve-3d;
+			transform-origin: 100px 0px;
+		}
+
+		#cake figure {
+			width: 200px;
+			height: 200px;
+			display: block;
+			position: absolute;
+			outline: 1px solid #ffaa44;
+		}
+
+		#cake .front  {
+			height: 100px;
+			background-color: #0000ff;
+			/*opacity: 0.5;*/
+
+			transform: rotateY(0deg) translate3d(-50px, 0, 100px);
+		}
+
+		#cake .back   {
+			height: 100px;
+			background-color: #00ff00;
+			/*opacity: 0.5;*/
+
+			transform: rotateY( 180deg ) translate3d(50px, 0, 100px);
+		}
+
+		#cake .right  {
+			height: 100px;
+			background-color: #0000ff;
+			/*opacity: 0.5;*/
+
+			transform: rotateY(  90deg ) translate3d(0, 0, 50px);
+		}
+
+		#cake .left {
+			height: 100px;
+			background-color: #00ff00;
+			/*opacity: 0.5;*/
+
+			transform: rotateY( -90deg ) translate3d(0, 0, 150px);
+		}
+
+		#cake .top {
+			background-color: #ff0000;
+			/*opacity: 0.5;*/
+
+			transform: rotateX(  90deg ) translate3d(-50px, 0, 100px);
+		}
+
+		#cake .bottom {
+			background-color: #ff0000;
+			/*opacity: 0.5;*/
+
+			transform: rotateX( -90deg ) translate3d(-50px, 0, 0);
+		}
+	</style>
+	<script language = "javascript">
+		$(document).ready(function(){
+			var cake = document.getElementById('cake');
+			console.log("ready");
+			timestep();
+		});
+
+		var angle = 0;
+
+		function timestep(){
+			angle += 1.5;
+			cake.style.transform = 'rotate3d(0, 1, 0,' + angle + 'deg)';
+
+			window.requestAnimationFrame(timestep);
+		}
+	</script>
+</head>
+
+<body>
+	<center>
+
+	<div style = "margin: 120px 0;">
+		<h1>HAPPY</h1>
+		<!--<h1 style = "font-size: 120px; padding-left: 26px">54<sup style = "font-size: 40px">th</sup></h1>-->
+		<h1>BIRTHDAY</h1>
+	</div>
+
+	<div id = "container">
+			<div id = "plate">
+			<div id = "cake" style = "transform: rotate3d(-1, 1, 0, 0deg)">
+
+				<figure class="front">
+				<div style = "width: 100%; height: 40%; background-color: #fff5e0"></div>
+				<div style = "width: 100%; height: 10%; background-color: #ffaa44"></div>
+				<div style = "width: 100%; height: 10%; background-color: #ffbb55"></div>
+				<div style = "width: 100%; height: 40%; background-color: #ffcc66"></div>
+				</figure>
+
+				<figure class="back">
+				<div style = "width: 100%; height: 40%; background-color: #fff5e0"></div>
+				<div style = "width: 100%; height: 10%; background-color: #ffaa44"></div>
+				<div style = "width: 100%; height: 10%; background-color: #ffbb55"></div>
+				<div style = "width: 100%; height: 40%; background-color: #ffcc66"></div>
+				</figure>
+
+				<figure class="right">
+				<div style = "width: 100%; height: 40%; background-color: #fff5e0"></div>
+				<div style = "width: 100%; height: 10%; background-color: #ffaa44"></div>
+				<div style = "width: 100%; height: 10%; background-color: #ffbb55"></div>
+				<div style = "width: 100%; height: 40%; background-color: #ffcc66"></div>
+				</figure>
+
+				<figure class="left">
+				<div style = "width: 100%; height: 40%; background-color: #fff5e0"></div>
+				<div style = "width: 100%; height: 10%; background-color: #ffaa44"></div>
+				<div style = "width: 100%; height: 10%; background-color: #ffbb55"></div>
+				<div style = "width: 100%; height: 40%; background-color: #ffcc66"></div>
+				</figure>
+
+				<figure class="top">
+				<div style = "width: 100%; height: 100%; background-color: #ffffff">
+					<table style = "width: 100%; height: 100%">
+						<tr></tr>
+
+						<tr>
+							<td></td>
+							<td style = "background-color: #cc2929"></td>
+							<td></td>
+							<td style = "background-color: #ff3333"></td>
+							<td></td>
+							<td style = "background-color: #cc2929"></td>
+							<td></td>
+						</tr>
+
+						<tr></tr>
+
+						<tr>
+							<td></td>
+							<td style = "background-color: #ff3333"></td>
+							<td></td>
+							<td style = "background-color: #cc2929"></td>
+							<td></td>
+							<td style = "background-color: #ff3333"></td>
+							<td></td>
+						</tr>
+
+						<tr></tr>
+
+						<tr>
+							<td></td>
+							<td style = "background-color: #cc2929"></td>
+							<td></td>
+							<td style = "background-color: #ff3333"></td>
+							<td></td>
+							<td style = "background-color: #cc2929"></td>
+							<td></td>
+						</tr>
+
+						<tr></tr>
+					</table>
+				</div>
+				</figure>
+
+				<figure class="bottom">
+				<div style = "width: 100%; height: 100%; background-color: #ffbb55"></div>
+				</figure>
+			</div>
+			</div>
+	</div>
+
+	<div style = "margin: 80px 0;">
+	<div style = "color: #ffffff; font-size: 25px; margin-top: 20px">28th September 2014</div>
+	</div>
+	
+	</center>
+
+</body>
+</html>
